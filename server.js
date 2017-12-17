@@ -12,13 +12,15 @@ var rss = require('./index.js');
 
 // viewed at http://localhost:8080
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/index.html'));
+    res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use(express.static('public'))
 
 var port = process.env.PORT || 8080;        // set our port
 
