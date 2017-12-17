@@ -26,8 +26,8 @@
       var feed = document.getElementById("urlIn").value;
       m.request({
         method: "GET",
-        url: "/api/feed" + "?feedUrl=" + feed,
-        feedUrl: feed
+        url: "/api/feed" + "?urlFeed=" + feed
+        // urlFeed: feed
       })
       .then(function(data) {
         writeToPage(data);

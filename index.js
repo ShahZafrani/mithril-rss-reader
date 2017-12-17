@@ -6,7 +6,7 @@ const FeedParser = require ("feedparser");
 const urlTestFeed = "https://www.theatlantic.com/feed/author/ta-nehisi-coates/";
 
 function getFeed (urlfeed, callback) {
-	var req = request (urlfeed);
+	var req = request(urlfeed);
 	var feedparser = new FeedParser ();
 	var feedItems = new Array ();
 	req.on ("response", function (res) {
@@ -40,24 +40,24 @@ function getFeed (urlfeed, callback) {
 
 console.log ("\n" + myProductName + " v" + myVersion + ".\n");
 
-function refreshFeed () {
-  var feedUrl = Document.getElementById("feedUrl").value();
-  getFeed (feedUrl, function (err, feedItems) {
-  	if (!err) {
-  		function pad (num) {
-  			var s = num.toString (), ctplaces = 3;
-  			while (s.length < ctplaces) {
-  				s = "0" + s;
-  				}
-  			return (s);
-  			}
-  		console.log ("There are " + feedItems.length + " items in the feed.\n");
-  		for (var i = 0; i < feedItems.length; i++) {
-  			console.log ("Item #" + pad (i) + ": " + feedItems [i].title + ".\n");
-  			}
-  		}
-  });
-}
+// function refreshFeed () {
+//   var feedUrl = document.getElementById("feedUrl").value();
+//   getFeed (feedUrl, function (err, feedItems) {
+//   	if (!err) {
+//   		function pad (num) {
+//   			var s = num.toString (), ctplaces = 3;
+//   			while (s.length < ctplaces) {
+//   				s = "0" + s;
+//   				}
+//   			return (s);
+//   			}
+//   		console.log ("There are " + feedItems.length + " items in the feed.\n");
+//   		for (var i = 0; i < feedItems.length; i++) {
+//   			console.log ("Item #" + pad (i) + ": " + feedItems [i].title + ".\n");
+//   			}
+//   		}
+//   });
+// }
 
 module.exports = {
   getFeed: getFeed

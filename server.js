@@ -32,7 +32,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/feed', function(req, res) {
-    rss.getFeed(req.params.urlFeed, function(err, feed) {
+    rss.getFeed(req.query.urlFeed, function(err, feed) {
         if (err)
             res.send(err);
         res.json(feed);
